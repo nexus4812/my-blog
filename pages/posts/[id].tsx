@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import Markdown from "../../components/Markdown";
 
 export default function Post({ postData }) {
   return (
@@ -16,7 +17,7 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <Markdown markdownString={postData.md}/>
       </article>
     </Layout>
   )
@@ -34,7 +35,8 @@ export const getStaticProps: GetStaticProps = async context => {
   const postData = await getPostData(context.params.id)
   return {
     props: {
-      postData
+      postData,
+      revalidate: 1,
     }
   }
 }
