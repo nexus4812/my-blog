@@ -9,8 +9,8 @@ export default function Markdown({ markdownString }) {
         code({node, inline, className, children, ...props}: any) {
             const match = /language-(\w+)/.exec(className || '')
             return !inline && match ? (
-                <div style={{fontSize: '0.75em !important'}}>
-                    <SyntaxHighlighter style={twilight} language={match[1]} PreTag="div" children={String(children).replace(/\n$/, '')} {...props} />
+                <div style={{border: "none", fontSize: "0.7em"}}>
+                    <SyntaxHighlighter style={{...twilight, border: "none !important", fontSize: "0.7em"}} language={match[1]} PreTag="div" children={String(children).replace(/\n$/, '')} {...props} />
                 </div>
             ) : (
                 <code className={className} {...props} />
