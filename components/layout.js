@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import styles from './layout.module.css'
 import Link from 'next/link'
 import Nav from "./parts/Nav";
 import { useRouter } from 'next/router';
@@ -18,9 +16,9 @@ export default function Layout({children = null}) {
                 <main>{children}</main>
 
                 {!isHome && (
-                    <div className={styles.backToHome}>
+                    <div>
                         <Link href="/">
-                            <a>← Back to home</a>
+                            <a>← トップに戻る</a>
                         </Link>
                     </div>
                 )}

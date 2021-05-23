@@ -15,7 +15,7 @@ export default function Post({ postData }) {
       </Head>
       <article>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <div className="mb-5 text-gray-400">
           <Date dateString={postData.date} />
         </div>
         <Markdown markdownString={postData.md}/>
