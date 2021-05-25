@@ -18,9 +18,9 @@ export default function Markdown({ markdownString }) {
             )
         },
 
-        h1: ({node, ...props}) => <h1 className="mb-4 text-3xl font-bold" id={props.children[0]} {...props} />,
-        h2: ({node, ...props}) => <h2 className="mb-3 text-2xl font-bold" id={props.children[0]} {...props} />,
-        h3: ({node, ...props}) => <h3 className="mb-2 text-xl  font-bold" id={props.children[0]} {...props} />,
+        h1: ({node, ...props}) => <h1 className="mb-4 text-3xl font-bold" id={String(props.children[0])} {...props} />,
+        h2: ({node, ...props}) => <h2 className="mb-3 text-2xl font-bold" id={String(props.children[0])} {...props} />,
+        h3: ({node, ...props}) => <h3 className="mb-2 text-xl  font-bold" id={String(props.children[0])} {...props} />,
         h4: ({node, ...props}) => <h4 className="mb-1 text-lg  font-bold" {...props} />,
         h5: ({node, ...props}) => <h5 className="font-bold" {...props} />,
         em: ({node, ...props}) => <i className="font-bold" {...props} />,
