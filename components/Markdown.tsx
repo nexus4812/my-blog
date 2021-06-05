@@ -4,8 +4,19 @@ import ReactMarkdown from 'react-markdown'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {twilight} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import {NormalComponents, SpecialComponents} from "react-markdown/src/ast-to-react";
+import {
+    TypographyVariantH1,
+    TypographyVariantH2,
+    TypographyVariantH3,
+    TypographyVariantH4,
+    TypographyVariantH5,
+} from "./typography/headings";
 
-export default function Markdown({ markdownString }) {
+type prop = {
+    children : string
+};
+
+export default function Markdown({children}: prop) {
     const components: Partial<NormalComponents & SpecialComponents> = {
         code({node, inline, className, children, ...props}: any) {
             const match = /language-(\w+)/.exec(className || '')
@@ -18,11 +29,11 @@ export default function Markdown({ markdownString }) {
             )
         },
 
-        h1: ({node, ...props}) => <h1 className="mb-4 text-3xl font-bold" id={String(props.children[0])} {...props} />,
-        h2: ({node, ...props}) => <h2 className="mb-3 text-2xl font-bold" id={String(props.children[0])} {...props} />,
-        h3: ({node, ...props}) => <h3 className="mb-2 text-xl  font-bold" id={String(props.children[0])} {...props} />,
-        h4: ({node, ...props}) => <h4 className="mb-1 text-lg  font-bold" {...props} />,
-        h5: ({node, ...props}) => <h5 className="font-bold" {...props} />,
+        h1: ({node, ...props}) => <TypographyVariantH1 id={String(props.children[0])} {...props} />,
+        h2: ({node, ...props}) => <TypographyVariantH2 id={String(props.children[0])} {...props} />,
+        h3: ({node, ...props}) => <TypographyVariantH3 id={String(props.children[0])} {...props} />,
+        h4: ({node, ...props}) => <TypographyVariantH4 id={String(props.children[0])} {...props} />,
+        h5: ({node, ...props}) => <TypographyVariantH5 id={String(props.children[0])} {...props} />,
         em: ({node, ...props}) => <i className="font-bold" {...props} />,
         ul: ({node, ...props}) => <ul className="pl-1 mb-5 list-disc list-inside" {...props} />,
         li: ({node, ...props}) => <li className="mb-1" {...props} />,
@@ -31,7 +42,7 @@ export default function Markdown({ markdownString }) {
 
     return (
         <ReactMarkdown
-            children={markdownString}
+            children={children}
             plugins={[gfm]}
             components={components}
         />

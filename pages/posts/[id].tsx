@@ -6,19 +6,27 @@ import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Markdown from "../../components/Markdown";
+import { renderToStaticMarkup } from "react-dom/server";
 
-export default function Post({ postData }) {
+type staticEntity = {
+  title: string
+  date: string
+  body: string
+  revalidate: number
+}
+
+export default function Post({ title, date,  body }: staticEntity) {
   return (
     <Layout>
       <Head>
-        <title>{postData.title}</title>
+        <title>{title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+        <h1 className={utilStyles.headingXl}>{title}</h1>
         <div className="mb-5 text-gray-400">
-          <Date dateString={postData.date} />
+          <Date dateString={date} />
         </div>
-        <Markdown markdownString={postData.md}/>
+        <div className="text" dangerouslySetInnerHTML={{__html: body}} />
       </article>
     </Layout>
   )
@@ -33,10 +41,13 @@ export const getStaticPaths: GetStaticPaths = async function () {
 }
 
 export const getStaticProps: GetStaticProps = async context => {
-  const postData = await getPostData(context.params.id)
+  const postData: any = await getPostData(context.params.id)
+
   return {
     props: {
-      postData,
+      title: postData.title,
+      date: postData.date,
+      body: renderToStaticMarkup(<Markdown>{postData.md}</Markdown>),
       revalidate: 1,
     }
   }

@@ -1,11 +1,9 @@
 import Link from "next/link";
 import {useRouter} from "next/router";
-import Profile from "./Profile";
 import React from "react";
 
 export default function Nav() {
     const isHome = useRouter().asPath === "/"
-
     const siteName = "Tama GoGo!!"
 
     return (
@@ -14,7 +12,7 @@ export default function Nav() {
                 <nav className="flex items-center justify-between flex-wrap bg-teal p-1">
                     <div className="flex  items-center flex-no-shrink mr-6">
                         <Link href="/">
-                            <div className="flex items-center cursor-pointer">
+                            <a className="flex items-center cursor-pointer">
                                 <img
                                     src="/logos/logo_transparent.png"
                                     alt="logo_image"
@@ -23,7 +21,7 @@ export default function Nav() {
                                     className="mt-1"
                                 />
                                 {!isHome ? (<span className="text-white">{siteName}</span>) : null}
-                            </div>
+                            </a>
                         </Link>
                     </div>
                 </nav>
@@ -40,5 +38,17 @@ export default function Nav() {
                 ) : null}
             </div>
         </div>
+    )
+}
+
+type prop = React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
+
+const Profile = function Profile({...prop}: prop) {
+    return (
+        <img
+            src="/images/profile.jpg"
+            alt="profile_image"
+            {...prop}
+        />
     )
 }
