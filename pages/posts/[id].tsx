@@ -1,12 +1,11 @@
-import
-  Layout from '../../components/layout'
+import Layout from 'components/layout'
 import { getAllPostIds, getPostData } from '../../lib/posts'
 import Head from 'next/head'
-import Date from '../../components/date'
-import utilStyles from '../../styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import Markdown from "../../components/Markdown";
+import Markdown from "components/Markdown";
 import { renderToStaticMarkup } from "react-dom/server";
+import {Author} from "components/block/profile/author";
+import {TypographyVariantH1} from "components/typography/headings";
 
 type staticEntity = {
   title: string
@@ -22,10 +21,8 @@ export default function Post({ title, date,  body }: staticEntity) {
         <title>{title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{title}</h1>
-        <div className="mb-5 text-gray-400">
-          <Date dateString={date} />
-        </div>
+        <TypographyVariantH1>{title}</TypographyVariantH1>
+        <Author date={date} name="Nexus4812"/>
         <div className="text" dangerouslySetInnerHTML={{__html: body}} />
       </article>
     </Layout>
@@ -40,14 +37,14 @@ export const getStaticPaths: GetStaticPaths = async function () {
   }
 }
 
-export const getStaticProps: GetStaticProps = async context => {
+export const getStaticProps: GetStaticProps<staticEntity, {id: string}> = async context => {
   const postData: any = await getPostData(context.params.id)
 
   return {
     props: {
       title: postData.title,
       date: postData.date,
-      body: renderToStaticMarkup(<Markdown>{postData.md}</Markdown>),
+      body: renderToStaticMarkup(<Markdown>{postData.md}</Markdown>), // ここで.mdを静的なHTMLに変換する
       revalidate: 1,
     }
   }

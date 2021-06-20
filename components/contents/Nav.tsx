@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {useRouter} from "next/router";
 import React from "react";
+import {ProfileIcon, lg} from 'components/block/profile/profileIcon';
 
 export default function Nav() {
     const isHome = useRouter().asPath === "/"
@@ -20,6 +21,7 @@ export default function Nav() {
                                     width={50}
                                     className="mt-1"
                                 />
+
                                 {!isHome ? (<span className="text-white">{siteName}</span>) : null}
                             </a>
                         </Link>
@@ -30,7 +32,7 @@ export default function Nav() {
                     <div className="flex items-center flex-wrap bg-teal pb-20 pt-10">
                         <Link href="/">
                             <>
-                                <Profile height={100} width={100}/>
+                                <ProfileIcon imageType={lg} />
                                 <h1 className="text-4xl ml-3 font text-white font-sans">{siteName} <br/> Tech Blog</h1>
                             </>
                         </Link>
@@ -38,17 +40,5 @@ export default function Nav() {
                 ) : null}
             </div>
         </div>
-    )
-}
-
-type prop = React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
-
-const Profile = function Profile({...prop}: prop) {
-    return (
-        <img
-            src="/images/profile.jpg"
-            alt="profile_image"
-            {...prop}
-        />
     )
 }
