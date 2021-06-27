@@ -11,6 +11,7 @@ posts/*
 tsconfig.json
 tailwind.config.js
 styles/*
+.github
 
 
 

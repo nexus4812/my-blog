@@ -28,6 +28,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: ls
-    - run: yarn intall
+    - run: yarn install
     - run: yarn lint
     - run: yarn build
