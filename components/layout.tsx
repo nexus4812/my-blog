@@ -1,12 +1,12 @@
 import Nav from './contents/Nav'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { FC } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 
 export const siteTitle = 'Tama GoGo!!'
 
-export default function Layout({ children = null }) {
+const Layout: FC = ({ children }) => {
   const isHome = useRouter().asPath === '/'
 
   return (
@@ -33,8 +33,10 @@ export default function Layout({ children = null }) {
       <footer className=" footer bg-white relative pt-1 ">
         <div className="mt-16 flex flex-col items-center bg-gray-900 text-white">
           <div className="w-4/5 flex justify-between pt-8 pb-9">
-            <Link href="/">
-              <p className="cursor-pointer font-bold text-lg font-sans">{siteTitle}</p>
+            <Link href="/" passHref>
+              <p className="cursor-pointer font-bold text-lg font-sans">
+                <a>{siteTitle}</a>
+              </p>
             </Link>
             <div className="flex justify-between text-sm items-end">
               {!isHome ? (
@@ -56,3 +58,5 @@ export default function Layout({ children = null }) {
     </>
   )
 }
+
+export default Layout

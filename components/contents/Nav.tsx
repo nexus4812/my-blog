@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { ProfileIcon, lg } from 'components/block/profile/profileIcon'
 
-export default function Nav() {
+export default function Nav(): JSX.Element {
   const isHome = useRouter().asPath === '/'
   const siteName = 'Tama GoGo!!'
 
@@ -14,7 +14,13 @@ export default function Nav() {
           <div className="flex  items-center flex-no-shrink mr-6">
             <Link href="/">
               <a className="flex items-center cursor-pointer">
-                <img src="/logos/logo_transparent.png" alt="logo_image" height={50} width={50} className="mt-1" />
+                <img // eslint-disable-line
+                  src="/logos/logo_transparent.png"
+                  alt="logo_image"
+                  height={50}
+                  width={50}
+                  className="mt-1"
+                />
 
                 {!isHome ? <span className="text-white">{siteName}</span> : null}
               </a>

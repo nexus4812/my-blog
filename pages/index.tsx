@@ -6,7 +6,7 @@ import { GetStaticProps } from 'next'
 
 type props = { items: dateListItemsProp[] }
 
-export default function Home({ items }: props) {
+export default function Home({ items }: props): JSX.Element {
   return (
     <Layout>
       <Head>

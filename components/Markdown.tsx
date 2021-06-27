@@ -16,7 +16,7 @@ type prop = {
   children: string
 }
 
-export default function Markdown({ children }: prop): any {
+export default function Markdown({ children }: prop): JSX.Element {
   const components: Partial<NormalComponents & SpecialComponents> = {
     code({ inline, className, children, ...props }) {
       const match = /language-(\w+)/.exec(className || '')

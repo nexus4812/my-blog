@@ -24,7 +24,7 @@ export const sm: imageType = {
 
 export const ProfileIcon: VFC<props> = ({ imageType, ...props }) => {
   return (
-    <img
+    <img // eslint-disable-line
       src={imageType.src}
       width={imageType.wight}
       height={imageType.height}

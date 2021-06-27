@@ -37,7 +37,7 @@ export function getSortedPostsData(): postData[] {
   return allPostsData.sort((a: postData, b: postData) => (a.date < b.date ? 1 : -1))
 }
 
-export function getAllPostIds() {
+export function getAllPostIds(): { params: { id: string } }[] {
   const fileNames = fs.readdirSync(postsDirectory)
   return fileNames.map((fileName) => {
     return {

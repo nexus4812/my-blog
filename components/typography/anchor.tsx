@@ -1,12 +1,10 @@
-import React, { VFC, PropsWithChildren, ForwardRefExoticComponent, PropsWithoutRef } from 'react'
+import React, { VFC, PropsWithChildren } from 'react'
 import Link, { LinkProps } from 'next/link'
 
-export const TypographyAnchor: ForwardRefExoticComponent<PropsWithoutRef<any>> = React.forwardRef(
-  ({ children, ...props }, ref) => (
-    <a ref={ref} className="cursor-pointer hover:underline" {...props}>
-      {children}
-    </a>
-  )
+export const Anchor: VFC<PropsWithChildren<JSX.IntrinsicElements['a']>> = ({ children, ...props }) => (
+  <a {...props} className="cursor-pointer hover:underline">
+    {children}
+  </a>
 )
 
 export const TypographyNextAnchor: VFC<PropsWithChildren<LinkProps>> = ({
@@ -14,6 +12,6 @@ export const TypographyNextAnchor: VFC<PropsWithChildren<LinkProps>> = ({
   ...props
 }: PropsWithChildren<LinkProps>) => (
   <Link {...props} passHref>
-    <TypographyAnchor>{children}</TypographyAnchor>
+    <Anchor>{children}</Anchor>
   </Link>
 )
