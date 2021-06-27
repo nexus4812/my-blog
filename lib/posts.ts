@@ -1,12 +1,12 @@
 import fs from 'fs'
 import path from 'path'
-import matter, {GrayMatterFile, Input} from 'gray-matter'
+import matter, { GrayMatterFile, Input } from 'gray-matter'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-export interface postData  {
+export interface postData {
   id: string
-  date: Date
+  date: string
   title: string
 }
 
@@ -34,12 +34,12 @@ export function getSortedPostsData(): postData[] {
   })
 
   // Sort posts by date
-  return allPostsData.sort((a:postData, b:postData) => (a.date < b.date ? 1 : -1))
+  return allPostsData.sort((a: postData, b: postData) => (a.date < b.date ? 1 : -1))
 }
 
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory)
-  return fileNames.map(fileName => {
+  return fileNames.map((fileName) => {
     return {
       params: {
         id: fileName.replace(/\.md$/, '')
@@ -48,8 +48,8 @@ export function getAllPostIds() {
   })
 }
 
-interface getPostContentData extends postData {
-  md: string,
+export interface getPostContentData extends postData {
+  md: string
 }
 export async function getPostData(id: string): Promise<getPostContentData> {
   const fullPath = path.join(postsDirectory, `${id}.md`)
@@ -57,7 +57,7 @@ export async function getPostData(id: string): Promise<getPostContentData> {
 
   // Use gray-matter to parse the post metadata section
   const matterResult: GrayMatterFile<Input> = matter(fileContents)
-  const md = matterResult.content;
+  const md = matterResult.content
 
   // Combine the data with the id and contentHtml
   return {
