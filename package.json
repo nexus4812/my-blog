@@ -9,6 +9,7 @@
     "export": "next build && next export",
     "serve": "yarn export && serve ./out",
     "lint": "yarn format && next lint",
+    "next-lint": "next lint",
     "format": "prettier --write ."
   },
   "dependencies": {

@@ -34,5 +34,5 @@ jobs:
           ${{ runner.os }}-
 
     - run: yarn install
-    - run: yarn lint
-    - run: yarn build
+    - run: yarn next-lint
+    - run: yarn export
