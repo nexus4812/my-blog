@@ -36,3 +36,16 @@ jobs:
     - run: yarn ci
     - run: yarn next-lint
     - run: yarn export
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-northeast-1
+
+    - name: Upload file to S3
+      env:
+        S3_UPLOAD_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
+      run:
+        aws s3 sync ./out s3://$S3_UPLOAD_BUCKET/ --acl public-read --cache-control "max-age=31536000" --profile=PROFILE_NAME
