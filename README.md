@@ -1,1 +1,1 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+[https://tama-go-go.nexus4812.com/](https://tama-go-go.nexus4812.com/posts/20210710-about-tamagogo-blog/)
