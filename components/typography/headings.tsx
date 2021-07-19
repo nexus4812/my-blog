@@ -15,13 +15,13 @@ export const TypographyVariantH2: VFC<prop> = ({ children, ...prop }: prop) => (
 )
 
 export const TypographyVariantH3: VFC<prop> = ({ children, ...prop }: prop) => (
-  <h3 className="mb-2 text-xl font-bold" {...prop}>
+  <h3 className="mb-2 text-lg font-bold" {...prop}>
     {children}
   </h3>
 )
 
 export const TypographyVariantH4: VFC<prop> = ({ children, ...prop }: prop) => (
-  <h4 className="mb-2 text-lg font-bold" {...prop}>
+  <h4 className="mb-1 text-lg font-bold" {...prop}>
     {children}
   </h4>
 )

@@ -13,7 +13,7 @@ export const Author: VFC<props> = ({ date, name }) => {
         <div>
           <TypographyNextAnchor href="/profile">{name}</TypographyNextAnchor>
         </div>
-        <div className="text-gray-400 mt-1 text-sm">
+        <div className="text-gray-800 mt-1 text-sm">
           <Date dateString={date} />
         </div>
       </div>
