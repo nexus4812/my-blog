@@ -59,7 +59,7 @@ export default function Markdown({ children }: prop): JSX.Element {
         {props.children}
       </th>
     ),
-    tr: ({ ...props }) => <th>{props.children}</th>,
+    tr: ({ ...props }) => <tr>{props.children}</tr>,
     td: ({ ...props }) => <td className="px-3 py-2 whitespace-nowrap">{props.children}</td>
     /* eslint-disable react/display-name */
   }
