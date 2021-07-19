@@ -12,6 +12,7 @@ import {
   TypographyVariantH4,
   TypographyVariantH5
 } from './typography/headings'
+import { BlueAnchor } from './typography/anchor'
 
 type prop = {
   children: string
@@ -51,13 +52,13 @@ export default function Markdown({ children }: prop): JSX.Element {
     ul: ({ ...props }) => <ul className="pl-1 mb-5 list-disc list-inside" {...props} />,
     li: ({ ...props }) => <li className="mb-1" {...props} />,
     p: ({ ...props }) => <p className="mb-5" {...props} />,
+    a: ({ ...props }) => <BlueAnchor {...props} target="_blank" />,
     table: ({ ...props }) => <table className="my-3 min-w-full divide-y divide-gray-200" {...props} />,
     th: ({ ...props }) => (
       <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" {...props} />
     ),
     tr: ({ ...props }) => <tr {...props} />,
     td: ({ ...props }) => <td className="px-3 py-2 whitespace-nowrap" {...props} />
-
     /* eslint-disable react/display-name */
   }
 

@@ -7,6 +7,12 @@ export const Anchor: VFC<PropsWithChildren<JSX.IntrinsicElements['a']>> = ({ chi
   </a>
 )
 
+export const BlueAnchor: VFC<PropsWithChildren<JSX.IntrinsicElements['a']>> = ({ children, ...props }) => (
+  <a {...props} className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
+    {children}
+  </a>
+)
+
 export const TypographyNextAnchor: VFC<PropsWithChildren<LinkProps>> = ({
   children,
   ...props
