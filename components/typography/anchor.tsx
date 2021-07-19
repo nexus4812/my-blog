@@ -8,7 +8,7 @@ export const Anchor: VFC<PropsWithChildren<JSX.IntrinsicElements['a']>> = ({ chi
 )
 
 export const BlueAnchor: VFC<PropsWithChildren<JSX.IntrinsicElements['a']>> = ({ children, ...props }) => (
-  <a {...props} className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
+  <a {...props} className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600 cursor-pointer">
     {children}
   </a>
 )
