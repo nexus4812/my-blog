@@ -12,18 +12,14 @@ const Layout: FC = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Next blogs</title>
+        <title>{siteTitle}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Learn how to build a personal website using Next.js" />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
         <meta name="og:title" content={siteTitle} />
+        <meta property="description" content="Tama GoGo Tech Blog" />
+        <meta property="og:description" content="Tama GoGo Tech Blog" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+
       <Nav />
 
       <div className="container mx-auto flex-auto min-w-0 px-4 sm:px-6 xl:px-8 pb-24 lg:pb-20">
