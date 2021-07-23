@@ -64,7 +64,11 @@ export default function Markdown({ children }: prop): JSX.Element {
       </th>
     ),
     tr: ({ ...props }) => <tr>{props.children}</tr>,
-    td: ({ ...props }) => <td className="px-3 py-2 whitespace-nowrap">{props.children}</td>
+    td: ({ ...props }) => <td className="px-3 py-2 whitespace-nowrap">{props.children}</td>,
+
+    img: (props) => {
+      return <img {...props} alt={props.alt.toString()} loading="lazy" decoding="async" /> // eslint-disable-line
+    }
     /* eslint-disable react/display-name */
   }
 
