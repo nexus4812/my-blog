@@ -53,7 +53,7 @@ export default function Markdown({ children }: prop): JSX.Element {
     li: ({ ...props }) => <li className="mb-1">{props.children}</li>,
     p: ({ ...props }) => <p className="mb-5">{props.children}</p>,
     a: ({ ...props }) => (
-      <BlueAnchor target="_blank" rel="noreferrer noopener" href={props.href}>
+      <BlueAnchor target="_blank" rel="noreferrer noopener" href={props.href.toString()}>
         {props.children}
       </BlueAnchor>
     ),
