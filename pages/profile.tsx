@@ -10,7 +10,11 @@ export default function Home(): JSX.Element {
       </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Github</h2>
-          <iframe loading="lazy" src="https://hatenablog-parts.com/embed?url=https://github.com/nexus4812" className="w-6/12"/>
+        <iframe
+          loading="lazy"
+          src="https://hatenablog-parts.com/embed?url=https://github.com/nexus4812"
+          className="w-6/12"
+        />
       </section>
     </Layout>
   )
