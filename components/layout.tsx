@@ -28,7 +28,7 @@ const Layout: FC = ({ children }) => {
 
       <footer className=" footer bg-white relative pt-1 ">
         <div className="mt-16 flex flex-col items-center bg-gray-900 text-white">
-          <div className="w-4/5 flex justify-between pt-8 pb-9">
+          <div className="lg:w-4/5 flex justify-between pt-8 pb-9">
             <p className="cursor-pointer font-bold text-lg font-sans">
               <Link href="/" passHref>
                 <a>{siteTitle}</a>
@@ -44,7 +44,7 @@ const Layout: FC = ({ children }) => {
                 </p>
               ) : null}
               <p className="ml-5 cursor-pointer hover:underline">
-                <Link href="/">
+                <Link href="/profile">
                   <a>About</a>
                 </Link>
               </p>
